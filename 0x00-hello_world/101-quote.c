@@ -3,11 +3,12 @@
 
 /**
 * main - Entry point
-* Return: Return 1 (Success)
+* Return: Return 1 (Not success)
 */
 int main(void)
 {
-	fputs("and that piece of art is useful\"");
-	fputs("- Dora Korpar, 2015-10-19\n", stdout);
+	char text[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+
+	write(1, text, 59);
 	return (1);
 }
