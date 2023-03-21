@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdlib.h>
+#include <ctype.h>
 
 /**
  * _islower - check the character c if it is lowercase or not.
