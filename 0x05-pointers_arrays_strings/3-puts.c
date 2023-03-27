@@ -14,6 +14,8 @@ void _puts(char *str)
 	{
 		_putchar(*(str + i));
 		i++;
+		if (*str == '\0')
+			break;
 	}
 	_putchar('\n');
 }
