@@ -31,21 +31,20 @@ char **strtow(char *str)
 		while (str[j] == ' ')
 			j++;
 
-		for (len = 0; str[j + len] != ' ' && str[j + len]; len++)
+		for (k = j; str[k] != ' ' && str[k]; k++)
 			;
-		words[i] = malloc(sizeof(char) * (len + 1));
+		words[i] = malloc(sizeof(char) * (k - j + 1));
 		if (words[i] == NULL)
 		{
-			for (k = 0; k < i; k++)
-				free(words[k]);
+			for (len = 0; len < i; len++)
+				free(words[len]);
 			free(words);
 			return (NULL);
 		}
 
-		for (k = 0; k < len; k++)
-			words[i][k] = str[j + k];
-		words[i][k] = '\0';
-		j += len;
+		for (len = 0; j < k; j++, len++)
+			words[i][len] = str[j];
+		words[i][len] = '\0';
 	}
 	words[i] = NULL;
 	return (words);
