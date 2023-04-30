@@ -3,7 +3,7 @@
 size_t listint_len_looped(const listint_t *head);
 
 /**
-* listint_len_looped - function that count 
+* listint_len_looped - function that count
 * the number of unique node in a looped list
 * @head: pointer to the head of the list.
 *
