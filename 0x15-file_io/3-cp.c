@@ -44,7 +44,7 @@ int copy_contents(int fd_from, int fd_to)
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %d\n", fd_to);
 			close(fd_from);
 			close(fd_to);
 			exit(99);
@@ -52,7 +52,7 @@ int copy_contents(int fd_from, int fd_to)
 	}
 	if (bytes_read == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %d\n", fd_from);
 		close(fd_from);
 		close(fd_to);
 		exit(98);
