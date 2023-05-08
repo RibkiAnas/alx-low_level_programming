@@ -2,6 +2,10 @@
 
 #define BUFFER_SIZE 1024
 
+int open_file(char *filename, int flags, int error_code);
+void write_to_file(int fd, char *buffer, ssize_t count, char *filename);
+void close_files(int fd1, int fd2);
+
 /**
 * main - function that copies the content of
 * a file to another file.
