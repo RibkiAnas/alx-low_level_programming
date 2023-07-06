@@ -13,17 +13,18 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	/* Compute the index of the key in the hash table */
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
-	/* Check if there is a collision at the computed index */
-	hash_node_t *node = ht->array[index];
-	/* Create a new node for the key/value pair */
-	hash_node_t *new_node = malloc(sizeof(hash_node_t));
+	unsigned long int index;
+	hash_node_t *node, *new_node;
 
 	/* Check if the key is valid */
 	if (!ht || !key || strlen(key) == 0)
 		return (0);
 
+	/* Compute the index of the key in the hash table */
+	index = key_index((const unsigned char *)key, ht->size);
+
+	/* Check if there is a collision at the computed index */
+	node = ht->array[index];
 	while (node)
 	{
 		/* If the key already exists in the hash table */
@@ -36,6 +37,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		node = node->next;
 	}
+
+	/* Create a new node for the key/value pair */
+	new_node = malloc(sizeof(hash_node_t));
 
 	if (!new_node)
 		return (0);
